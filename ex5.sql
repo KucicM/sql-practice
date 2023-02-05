@@ -1,0 +1,58 @@
+/*
+Orders placed by specific EmployeeID 
+Show all the orders placed by a specific employee. 
+The EmployeeID for this Employee (Steven Buchanan) is 5.
+*/
+
+SELECT * 
+FROM public.Orders
+WHERE EmployeeId = 5;
+
+
+/*
+ orderid | customerid | employeeid |      orderdate      |    requireddate     |     shippeddate     | shipvia | freight  |          shipname          |                  shipaddress                   |    shipcity     |  shipregion   | shippostalcode | shipcountry 
+---------+------------+------------+---------------------+---------------------+---------------------+---------+----------+----------------------------+------------------------------------------------+-----------------+---------------+----------------+-------------
+   10248 | VINET      |          5 | 2014-07-04 08:00:00 | 2014-08-01 00:00:00 | 2014-07-16 00:00:00 |       3 |  32.3800 | Vins et alcools Chevalier  | 59 rue de l'Abbaye                             | Reims           |               | 51100          | France
+   10254 | CHOPS      |          5 | 2014-07-11 02:00:00 | 2014-08-08 00:00:00 | 2014-07-23 00:00:00 |       2 |  22.9800 | Chop-suey Chinese          | Hauptstr. 31                                   | Bern            |               | 3012           | Switzerland
+   10269 | WHITC      |          5 | 2014-07-31 00:00:00 | 2014-08-14 00:00:00 | 2014-08-09 00:00:00 |       1 |   4.5600 | White Clover Markets       | 1029 - 12th Ave. S.                            | Seattle         | WA            | 98124          | USA
+   10297 | BLONP      |          5 | 2014-09-04 21:00:00 | 2014-10-16 00:00:00 | 2014-09-10 00:00:00 |       2 |   5.7400 | Blondel père et fils       | 24, place Kléber                               | Strasbourg      |               | 67000          | France
+   10320 | WARTH      |          5 | 2014-10-03 12:00:00 | 2014-10-19 00:00:00 | 2014-10-18 00:00:00 |       3 |  34.5700 | Wartian Herkku             | Torikatu 38                                    | Oulu            |               | 90110          | Finland
+   10333 | WARTH      |          5 | 2014-10-18 18:00:00 | 2014-11-15 00:00:00 | 2014-10-25 00:00:00 |       3 |   0.5900 | Wartian Herkku             | Torikatu 38                                    | Oulu            |               | 90110          | Finland
+   10358 | LAMAI      |          5 | 2014-11-20 05:00:00 | 2014-12-18 00:00:00 | 2014-11-27 00:00:00 |       1 |  19.6400 | La maison d'Asie           | 1 rue Alsace-Lorraine                          | Toulouse        |               | 31000          | France
+   10359 | SEVES      |          5 | 2014-11-21 14:00:00 | 2014-12-19 00:00:00 | 2014-11-26 00:00:00 |       3 | 288.4300 | Seven Seas Imports         | 90 Wadhurst Rd.                                | London          |               | OX15 4NB       | UK
+   10372 | QUEEN      |          5 | 2014-12-04 10:00:00 | 2015-01-01 00:00:00 | 2014-12-09 00:00:00 |       2 | 890.7800 | Queen Cozinha              | Alameda dos Canàrios, 891                      | Sao Paulo       | SP            | 05487-020      | Brazil
+   10378 | FOLKO      |          5 | 2014-12-10 00:00:00 | 2015-01-07 00:00:00 | 2014-12-19 00:00:00 |       3 |   5.4400 | Folk och fä HB             | Åkergatan 24                                   | Bräcke          |               | S-844 67       | Sweden
+   10397 | PRINI      |          5 | 2014-12-27 17:00:00 | 2015-01-24 00:00:00 | 2015-01-02 00:00:00 |       1 |  60.2600 | Princesa Isabel Vinhos     | Estrada da saúde n. 58                         | Lisboa          |               | 1756           | Portugal
+   10463 | SUPRD      |          5 | 2015-03-04 13:00:00 | 2015-04-01 00:00:00 | 2015-03-06 00:00:00 |       3 |  14.7800 | Suprêmes délices           | Boulevard Tirou, 255                           | Charleroi       |               | B-6000         | Belgium
+   10474 | PERIC      |          5 | 2015-03-13 16:00:00 | 2015-04-10 00:00:00 | 2015-03-21 00:00:00 |       2 |  83.4900 | Pericles Comidas clásicas  | Calle Dr. Jorge Cash 321                       | México D.F.     |               | 05033          | Mexico
+   10477 | PRINI      |          5 | 2015-03-17 02:00:00 | 2015-04-14 00:00:00 | 2015-03-25 00:00:00 |       2 |  13.0200 | Princesa Isabel Vinhos     | Estrada da saúde n. 58                         | Lisboa          |               | 1756           | Portugal
+   10529 | MAISD      |          5 | 2015-05-07 01:00:00 | 2015-06-04 00:00:00 | 2015-05-09 00:00:00 |       2 |  66.6900 | Maison Dewey               | Rue Joseph-Bens 532                            | Bruxelles       |               | B-1180         | Belgium
+   10549 | QUICK      |          5 | 2015-05-27 03:00:00 | 2015-06-10 00:00:00 | 2015-05-30 00:00:00 |       1 | 171.2400 | QUICK-Stop                 | Taucherstraße 10                               | Cunewalde       |               | 01307          | Germany
+   10569 | RATTC      |          5 | 2015-06-16 15:00:00 | 2015-07-14 00:00:00 | 2015-07-11 00:00:00 |       1 |  58.9800 | Rattlesnake Canyon Grocery | 2817 Milton Dr.                                | Albuquerque     | NM            | 87110          | USA
+   10575 | MORGK      |          5 | 2015-06-20 22:00:00 | 2015-07-04 00:00:00 | 2015-06-30 00:00:00 |       1 | 127.3400 | Morgenstern Gesundkost     | Heerstr. 22                                    | Leipzig         |               | 04179          | Germany
+   10607 | SAVEA      |          5 | 2015-07-22 09:00:00 | 2015-08-19 00:00:00 | 2015-07-25 00:00:00 |       1 | 200.2400 | Save-a-lot Markets         | 187 Suffolk Ln.                                | Boise           | ID            | 83720          | USA
+   10648 | RICAR      |          5 | 2015-08-28 22:00:00 | 2015-10-09 00:00:00 | 2015-09-09 00:00:00 |       2 |  14.2500 | Ricardo Adocicados         | Av. Copacabana, 267                            | Rio de Janeiro  | RJ            | 02389-890      | Brazil
+   10649 | MAISD      |          5 | 2015-08-28 00:00:00 | 2015-09-25 00:00:00 | 2015-08-29 00:00:00 |       3 |   6.2000 | Maison Dewey               | Rue Joseph-Bens 532                            | Bruxelles       |               | B-1180         | Belgium
+   10650 | FAMIA      |          5 | 2015-08-29 06:00:00 | 2015-09-26 00:00:00 | 2015-09-03 00:00:00 |       3 | 176.8100 | Familia Arquibaldo         | Rua Orós, 92                                   | Sao Paulo       | SP            | 05442-030      | Brazil
+   10654 | BERGS      |          5 | 2015-09-02 07:00:00 | 2015-09-30 00:00:00 | 2015-09-11 00:00:00 |       1 |  55.2600 | Berglunds snabbköp         | Berguvsvägen  8                                | Luleå           |               | S-958 22       | Sweden
+   10675 | FRANK      |          5 | 2015-09-19 06:00:00 | 2015-10-17 00:00:00 | 2015-09-23 00:00:00 |       2 |  31.8500 | Frankenversand             | Berliner Platz 43                              | München         |               | 80805          | Germany
+   10711 | SAVEA      |          5 | 2015-10-21 03:00:00 | 2015-12-02 00:00:00 | 2015-10-29 00:00:00 |       2 |  52.4100 | Save-a-lot Markets         | 187 Suffolk Ln.                                | Boise           | ID            | 83720          | USA
+   10714 | SAVEA      |          5 | 2015-10-22 03:00:00 | 2015-11-19 00:00:00 | 2015-10-27 00:00:00 |       3 |  24.4900 | Save-a-lot Markets         | 187 Suffolk Ln.                                | Boise           | ID            | 83720          | USA
+   10721 | QUICK      |          5 | 2015-10-29 08:00:00 | 2015-11-26 00:00:00 | 2015-10-31 00:00:00 |       3 |  48.9200 | QUICK-Stop                 | Taucherstraße 10                               | Cunewalde       |               | 01307          | Germany
+   10730 | BONAP      |          5 | 2015-11-05 07:00:00 | 2015-12-03 00:00:00 | 2015-11-14 00:00:00 |       1 |  20.1200 | Bon app'                   | 12, rue des Bouchers                           | Marseille       |               | 13008          | France
+   10761 | RATTC      |          5 | 2015-12-02 08:00:00 | 2015-12-30 00:00:00 | 2015-12-08 00:00:00 |       2 |  18.6600 | Rattlesnake Canyon Grocery | 2817 Milton Dr.                                | Albuquerque     | NM            | 87110          | USA
+   10812 | REGGC      |          5 | 2016-01-02 02:00:00 | 2016-01-30 00:00:00 | 2016-01-12 00:00:00 |       1 |  59.7800 | Reggiani Caseifici         | Strada Provinciale 124                         | Reggio Emilia   |               | 42100          | Italy
+   10823 | LILAS      |          5 | 2016-01-09 17:00:00 | 2016-02-06 00:00:00 | 2016-01-13 00:00:00 |       2 | 163.9700 | LILA-Supermercado          | Carrera 52 con Ave. Bolívar #65-98 Llano Largo | Barquisimeto    | Lara          | 3508           | Venezuela
+   10841 | SUPRD      |          5 | 2016-01-20 21:00:00 | 2016-02-17 00:00:00 | 2016-01-29 00:00:00 |       2 | 424.3000 | Suprêmes délices           | Boulevard Tirou, 255                           | Charleroi       |               | B-6000         | Belgium
+   10851 | RICAR      |          5 | 2016-01-26 00:00:00 | 2016-02-23 00:00:00 | 2016-02-02 00:00:00 |       1 | 160.5500 | Ricardo Adocicados         | Av. Copacabana, 267                            | Rio de Janeiro  | RJ            | 02389-890      | Brazil
+   10866 | BERGS      |          5 | 2016-02-03 01:00:00 | 2016-03-03 00:00:00 | 2016-02-12 00:00:00 |       1 | 109.1100 | Berglunds snabbköp         | Berguvsvägen  8                                | Luleå           |               | S-958 22       | Sweden
+   10869 | SEVES      |          5 | 2016-02-04 09:00:00 | 2016-03-04 00:00:00 | 2016-02-09 00:00:00 |       1 | 143.2800 | Seven Seas Imports         | 90 Wadhurst Rd.                                | London          |               | OX15 4NB       | UK
+   10870 | WOLZA      |          5 | 2016-02-04 12:00:00 | 2016-03-04 00:00:00 | 2016-02-13 00:00:00 |       3 |  12.0400 | Wolski Zajazd              | ul. Filtrowa 68                                | Warszawa        |               | 01-012         | Poland
+   10872 | GODOS      |          5 | 2016-02-05 06:00:00 | 2016-03-05 00:00:00 | 2016-02-09 00:00:00 |       2 | 175.3200 | Godos Cocina Típica        | C/ Romero, 33                                  | Sevilla         |               | 41101          | Spain
+   10874 | GODOS      |          5 | 2016-02-06 14:00:00 | 2016-03-06 00:00:00 | 2016-02-11 00:00:00 |       2 |  19.5800 | Godos Cocina Típica        | C/ Romero, 33                                  | Sevilla         |               | 41101          | Spain
+   10899 | LILAS      |          5 | 2016-02-20 09:00:00 | 2016-03-20 00:00:00 | 2016-02-26 00:00:00 |       3 |   1.2100 | LILA-Supermercado          | Carrera 52 con Ave. Bolívar #65-98 Llano Largo | Barquisimeto    | Lara          | 3508           | Venezuela
+   10922 | HANAR      |          5 | 2016-03-03 02:00:00 | 2016-03-31 00:00:00 | 2016-03-05 00:00:00 |       3 |  62.7400 | Hanari Carnes              | Rua do Paço, 67                                | Rio de Janeiro  | RJ            | 05454-876      | Brazil
+   10954 | LINOD      |          5 | 2016-03-17 16:00:00 | 2016-04-28 00:00:00 | 2016-03-20 00:00:00 |       1 |  27.9100 | LINO-Delicateses           | Ave. 5 de Mayo Porlamar                        | I. de Margarita | Nueva Esparta | 4980           | Venezuela
+   11043 | SPECD      |          5 | 2016-04-22 17:00:00 | 2016-05-20 00:00:00 | 2016-04-29 00:00:00 |       2 |   8.8000 | Spécialités du monde       | 25, rue Lauriston                              | Paris           |               | 75016          | France
+(42 rows)
+*/
