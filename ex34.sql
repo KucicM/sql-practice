@@ -5,14 +5,14 @@ Change the above query to use the discount when calculating high-value customers
 Order by the total amount which includes the discount. 
 */
 
-select c.customerId, c.companyName, sum((d.unitprice - d.discount) * d.quantity) AS totalPrice
+select c.customerId, c.companyName, sum(d.unitprice * d.quantity * (1 - d.discount)) AS totalPrice
 from orders o
 join orderDetails as d on d.orderId = o.orderId
 join customers as c on c.customerId = o.customerId
 where extract('year' from o.orderdate) = 2016
 group by  c.customerId, c.companyName
-having sum((d.unitprice - d.discount) * d.quantity) >= 15000
-order by sum((d.unitprice - d.discount) * d.quantity);
+having sum(d.unitprice * d.quantity * (1 - d.discount)) >= 10000
+order by sum(d.unitprice * d.quantity * (1 - d.discount)) DESC;
 
 /*
  customerid |         companyname          | totalprice 
